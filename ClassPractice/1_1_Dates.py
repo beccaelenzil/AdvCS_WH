@@ -204,6 +204,16 @@ class Date:
         newdow = (dowdiff + 2)%7
         return self.weekdays[newdow]
 
+    def dow2(self, refDate):
+        if refDate.dow() == "Wednesday":
+            comparitor = refDate
+            daydiff = self.diff(comparitor)
+            dowdiff = daydiff%7
+            newdow = (dowdiff + 2)%7
+            return self.weekdays[newdow]
+        else:
+            return False
+
 """
 date = Date(2, 28, 2016)
 date2 = Date(12, 31, 2016)
@@ -276,5 +286,31 @@ def bdcounter():
 
     print 'totals are', dowd
 
-nycounter()
-bdcounter()
+def badluck13():
+    """Looking ahead to 100 years of New Year's celebrations"""
+
+    dowd = {}              # dowd == 'day of week dictionary'
+    dowd["Sunday"] = 0     # a 0 entry for Sunday
+    dowd["Monday"] = 0     # and so on
+    dowd["Tuesday"] = 0
+    dowd["Wednesday"] = 0
+    dowd["Thursday"] = 0
+    dowd["Friday"] = 0
+    dowd["Saturday"] = 0
+    reference = Date(8,13,2014)
+
+    # live for another 100 years
+    for year in range(2014, 2415):
+        for month in range(1, 13):
+            d = Date(month, 13, year)   # get ny
+            print 'Current date is', d
+            s = d.dow2(reference)        # get day of week
+            if s == "Wednesday":
+                reference = d
+            dowd[s] += 1       # count it
+
+    print 'totals are', dowd
+
+# nycounter()
+# bdcounter()
+badluck13()
