@@ -1,3 +1,4 @@
+import time
 class Date:
     """ a user-defined data structure that
         stores and manipulates dates
@@ -176,6 +177,7 @@ class Date:
         """
         :return: returns the difference between two dates in days
         """
+        t0 = time.clock()
         positive = (self > d2)
         day1 = Date(self.month, self.day, self.year)
         day2 = Date(d2.month, d2.day, d2.year)
@@ -187,11 +189,15 @@ class Date:
                 while day1 > day2:
                     difference += 1
                     day2.tomorrow()
+                t1 = time.clock()
+                print t1-t0
                 return difference
             else:
                 while day1 < day2:
                     difference += 1
                     day1.tomorrow()
+                t1 = time.clock()
+                print t1-t0
                 return difference * -1
 
     def dow(self):
@@ -205,14 +211,15 @@ class Date:
         return self.weekdays[newdow]
 
     def dow2(self, refDate):
-        if refDate.dow() == "Wednesday":
-            comparitor = refDate
-            daydiff = self.diff(comparitor)
-            dowdiff = daydiff%7
-            newdow = (dowdiff + 2)%7
-            return self.weekdays[newdow]
-        else:
-            return False
+        """
+        :param refDate: MUST BE WEDNESDAY
+        :return:
+        """
+        comparitor = refDate
+        daydiff = self.diff(comparitor)
+        dowdiff = daydiff%7
+        newdow = (dowdiff + 2)%7
+        return self.weekdays[newdow]
 
 """
 date = Date(2, 28, 2016)
@@ -313,4 +320,10 @@ def badluck13():
 
 # nycounter()
 # bdcounter()
-badluck13()
+#badluck13()
+
+date1 = Date(3,14,2016)
+print date1.diff(Date(4,14,2016))
+print date1.diff(Date(3,14,2017))
+print date1.diff(Date(3,14,2116))
+print date1.diff(Date(1,1,0000))
