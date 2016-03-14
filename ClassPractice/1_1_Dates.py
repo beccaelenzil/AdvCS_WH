@@ -190,14 +190,14 @@ class Date:
                     difference += 1
                     day2.tomorrow()
                 t1 = time.clock()
-                print t1-t0
+                # print t1-t0
                 return difference
             else:
                 while day1 < day2:
                     difference += 1
                     day1.tomorrow()
                 t1 = time.clock()
-                print t1-t0
+                # print t1-t0
                 return difference * -1
 
     def dow(self):
@@ -320,10 +320,12 @@ def badluck13():
 
 # nycounter()
 # bdcounter()
-#badluck13()
+# badluck13()
 
+"""
 date1 = Date(3,14,2016)
 print date1.diff(Date(4,14,2016))
 print date1.diff(Date(3,14,2017))
 print date1.diff(Date(3,14,2116))
 print date1.diff(Date(1,1,0000))
+"""
