@@ -28,7 +28,7 @@ class Board:
             s += " " + str(col%10)
         return s       # the board is complete, return it
 
-    def addmove(self, col, ox):
+    def addMove(self, col, ox):
         for row in range(self.height - 1, -1, -1):
             if self.data[row][col] == " ":
                 self.data[row][col] = ox
@@ -65,16 +65,65 @@ class Board:
         else:
             return True
 
+    def isFull(self):
+        for row in range(0, self.height):
+            for col in range(0, self.width):
+                if self.data[row][col] == " ":
+                    return False
+        return True
+
+    def delMove(self, c):
+        for row in range(0, self.height):
+            if self.data[row][c] != " ":
+                self.data[row][c] = " "
+                break
+
+    def winsFor(self, ox):
+        H = self.height
+        W = self.width
+        D = self.data
+        # check for horizontal wins
+        for row in range(0,H):
+            for col in range(0,W-3):
+                if D[row][col] == ox and D[row][col+1] == ox and D[row][col+2] == ox and D[row][col+3] == ox:
+                    return True
+        for col in range(0,W):
+            for row in range(0,H-3):
+                if D[row][col] == ox and D[row+1][col] == ox and D[row+2][col] == ox and D[row+3][col] == ox:
+                    return True
+        for row in range(0,W-3):
+            for col in range(0,H-3):
+                if D[row][col] == ox and D[row+1][col+1] == ox and D[row+2][col+2] == ox and D[row+3][col+3] == ox:
+                    return True
+        for row in range(0,W-3):
+            for col in range(3,H):
+                if D[row][col] == ox and D[row+1][col-1] == ox and D[row+2][col-2] == ox and D[row+3][col-3] == ox:
+                    return True
+        return False
+
+    def hostGame(self):
+        print self
+        while True:
+            x_move = -1
+            while(self.allowsMove(x_move) == False):
+                x_move = input()
+            self.addMove(x_move, "X")
+            print self
+            if self.winsFor("X"):
+                print "X Wins!"
+                break
+            o_move = -1
+            while(self.allowsMove(o_move) == False):
+                o_move = input()
+            self.addMove(o_move, "O")
+            print self
+            if self.winsFor("O"):
+                print "O Wins!"
+                break
+
+
+game = Board(7,6)
+game.hostGame()
 
 
 
-
-
-
-
-game = Board(7, 6)
-game.addmove(3, "O")
-game.addmove(2, "X")
-game.addmove(2, "O")
-game.addmove(6, "X")
-print game
