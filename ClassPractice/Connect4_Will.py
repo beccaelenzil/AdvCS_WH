@@ -2,30 +2,30 @@ class Board:
     """ a datatype representing a C4 board
         with an arbitrary number of rows and cols
     """
-    def __init__( self, width, height ):
+    def __init__(self, width, height):
         """ the constructor for objects of type Board """
         self.width = width
         self.height = height
-        W = self.width
-        H = self.height
-        self.data = [ [' ']*W for row in range(H) ]
+        w = self.width
+        h = self.height
+        self.data = [[' ']*w for row in range(h)]
 
     def __repr__(self):
         """ this method returns a string representation
             for an object of type Board
         """
-        H = self.height
-        W = self.width
+        h = self.height
+        w = self.width
         s = ''   # the string to return
-        for row in range(0,H):
+        for row in range(0, h):
             s += '|'
-            for col in range(0,W):
+            for col in range(0, w):
                 s += self.data[row][col] + '|'
             s += '\n'
-        s += (2*W+1) * '-'    # bottom of the board
+        s += (2*w+1) * '-'    # bottom of the board
         s += '\n'
-        for col in range(0,W):
-            s += " " + str(col%10)
+        for col in range(0, w):
+            s += " " + str(col % 10)
         return s       # the board is complete, return it
 
     def addMove(self, col, ox):
@@ -60,7 +60,7 @@ class Board:
             else: nextCh = 'X'
 
     def allowsMove(self, c):
-        if self.data[0][c] != " ":
+        if self.data[0][c] != " " or c < 0 or c >= self.width:
             return False
         else:
             return True
@@ -106,7 +106,7 @@ class Board:
         while True:
             x_move = -1
             while(self.allowsMove(x_move) == False):
-                x_move = input()
+                x_move = input("Choose a Column: ")
             self.addMove(x_move, "X")
             print self
             if self.winsFor("X"):
@@ -114,7 +114,7 @@ class Board:
                 break
             o_move = -1
             while(self.allowsMove(o_move) == False):
-                o_move = input()
+                o_move = input("Choose a Column: ")
             self.addMove(o_move, "O")
             print self
             if self.winsFor("O"):
@@ -122,8 +122,10 @@ class Board:
                 break
 
 
-game = Board(7,6)
-game.hostGame()
+def connectFour():
+    width = 7
+    height = 6
+    game = Board(width, height)
+    game.hostGame()
 
-
-
+connectFour()
