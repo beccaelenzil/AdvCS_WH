@@ -21,16 +21,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Connect4_Will.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="hex.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hex.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.65800864">
+              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Connect4_Will.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Connect4_Will.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding>
-                <element signature="e#17#4158#0" expanded="false" />
                 <element signature="e#17#113#1" expanded="false" />
-                <element signature="e#161#363#0" expanded="false" />
-                <element signature="e#397#938#0" expanded="false" />
                 <element signature="e#397#496#1" expanded="false" />
                 <element signature="e#980#1129#0" expanded="false" />
                 <element signature="e#1160#1280#0" expanded="false" />
@@ -41,19 +48,6 @@
                 <element signature="e#2394#2530#0" expanded="false" />
                 <element signature="e#2567#3538#0" expanded="false" />
                 <element signature="e#3572#4158#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="boxes.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/boxes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-                <element signature="e#55#264#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -82,14 +76,14 @@
         <option value="$PROJECT_DIR$/1_1_Dates.py" />
         <option value="$PROJECT_DIR$/boxes.py" />
         <option value="$PROJECT_DIR$/Connect4_Will.py" />
+        <option value="$PROJECT_DIR$/hex.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="784" />
+    <option name="width" value="1378" />
+    <option name="height" value="780" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -130,6 +124,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -150,7 +145,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -158,24 +152,7 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python.Connect4_Will">
-    <configuration default="false" name="PersonClass" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="ClassPractice" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PersonClass.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.hex">
     <configuration default="false" name="Rational" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -240,6 +217,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="ClassPractice" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/boxes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="hex" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ClassPractice" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hex.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -367,19 +361,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.PersonClass" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Rational" />
-      <item index="2" class="java.lang.String" itemvalue="Python.1_1_Dates" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Connect4_Will" />
-      <item index="4" class="java.lang.String" itemvalue="Python.boxes" />
+      <item index="0" class="java.lang.String" itemvalue="Python.Rational" />
+      <item index="1" class="java.lang.String" itemvalue="Python.1_1_Dates" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Connect4_Will" />
+      <item index="3" class="java.lang.String" itemvalue="Python.boxes" />
+      <item index="4" class="java.lang.String" itemvalue="Python.hex" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Connect4_Will" />
-        <item index="1" class="java.lang.String" itemvalue="Python.boxes" />
-        <item index="2" class="java.lang.String" itemvalue="Python.1_1_Dates" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Rational" />
-        <item index="4" class="java.lang.String" itemvalue="Python.PersonClass" />
+        <item index="0" class="java.lang.String" itemvalue="Python.hex" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Connect4_Will" />
+        <item index="2" class="java.lang.String" itemvalue="Python.boxes" />
+        <item index="3" class="java.lang.String" itemvalue="Python.1_1_Dates" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Rational" />
       </list>
     </recent_temporary>
   </component>
@@ -388,13 +382,13 @@
     <configuration>C:\Users\Owner\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="0" width="1378" height="780" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27540502" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27407408" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -436,20 +430,28 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="25" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/boxes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#20#0" expanded="false" />
+            <element signature="e#55#264#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Connect4_Will.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#17#4158#0" expanded="false" />
             <element signature="e#17#113#1" expanded="false" />
-            <element signature="e#161#363#0" expanded="false" />
-            <element signature="e#397#938#0" expanded="false" />
             <element signature="e#397#496#1" expanded="false" />
             <element signature="e#980#1129#0" expanded="false" />
             <element signature="e#1160#1280#0" expanded="false" />
@@ -469,7 +471,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
           <folding>
-            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="false" />
             <element signature="e#55#264#0" expanded="false" />
           </folding>
         </state>
@@ -480,10 +482,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#17#4158#0" expanded="false" />
             <element signature="e#17#113#1" expanded="false" />
-            <element signature="e#161#363#0" expanded="false" />
-            <element signature="e#397#938#0" expanded="false" />
             <element signature="e#397#496#1" expanded="false" />
             <element signature="e#980#1129#0" expanded="false" />
             <element signature="e#1160#1280#0" expanded="false" />
@@ -503,10 +502,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#17#4158#0" expanded="false" />
             <element signature="e#17#113#1" expanded="false" />
-            <element signature="e#161#363#0" expanded="false" />
-            <element signature="e#397#938#0" expanded="false" />
             <element signature="e#397#496#1" expanded="false" />
             <element signature="e#980#1129#0" expanded="false" />
             <element signature="e#1160#1280#0" expanded="false" />
@@ -603,7 +599,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
           <folding>
-            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="false" />
             <element signature="e#55#264#0" expanded="false" />
           </folding>
         </state>
@@ -612,12 +608,9 @@
     <entry file="file://$PROJECT_DIR$/Connect4_Will.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="e#17#4158#0" expanded="false" />
             <element signature="e#17#113#1" expanded="false" />
-            <element signature="e#161#363#0" expanded="false" />
-            <element signature="e#397#938#0" expanded="false" />
             <element signature="e#397#496#1" expanded="false" />
             <element signature="e#980#1129#0" expanded="false" />
             <element signature="e#1160#1280#0" expanded="false" />
@@ -629,6 +622,14 @@
             <element signature="e#2567#3538#0" expanded="false" />
             <element signature="e#3572#4158#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65800864">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
