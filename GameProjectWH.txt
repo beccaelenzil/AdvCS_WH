@@ -1,0 +1,5 @@
+Game: Hex
+
+Game Play: Players take turns placing tiles on a board
+
+Objective of the Game: Create a line of tiles that crosses the board
