@@ -24,30 +24,19 @@
       <file leaf-file-name="hex.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65800864">
-              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Connect4_Will.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Connect4_Will.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.61538464">
+              <caret line="246" column="0" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
               <folding>
-                <element signature="e#17#113#1" expanded="false" />
-                <element signature="e#397#496#1" expanded="false" />
-                <element signature="e#980#1129#0" expanded="false" />
-                <element signature="e#1160#1280#0" expanded="false" />
-                <element signature="e#1328#1992#0" expanded="false" />
-                <element signature="e#1328#1721#1" expanded="false" />
-                <element signature="e#2031#2148#0" expanded="false" />
-                <element signature="e#2180#2358#0" expanded="false" />
-                <element signature="e#2394#2530#0" expanded="false" />
-                <element signature="e#2567#3538#0" expanded="false" />
-                <element signature="e#3572#4158#0" expanded="false" />
+                <element signature="e#79#195#0" expanded="false" />
+                <element signature="e#229#850#0" expanded="false" />
+                <element signature="e#229#282#1" expanded="false" />
+                <element signature="e#891#1059#0" expanded="false" />
+                <element signature="e#891#956#1" expanded="false" />
+                <element signature="e#1106#1315#0" expanded="false" />
+                <element signature="e#1366#2436#0" expanded="false" />
+                <element signature="e#2478#5195#0" expanded="false" />
+                <element signature="e#5237#7952#0" expanded="false" />
+                <element signature="e#7986#9315#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -77,13 +66,15 @@
         <option value="$PROJECT_DIR$/boxes.py" />
         <option value="$PROJECT_DIR$/Connect4_Will.py" />
         <option value="$PROJECT_DIR$/hex.py" />
+        <option value="$PROJECT_DIR$/hex_graphics.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1378" />
-    <option name="height" value="780" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -124,7 +115,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -145,31 +135,15 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/W&amp;P_Seg/segregationSim.py" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Python.hex">
-    <configuration default="false" name="Rational" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="ClassPractice" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Rational.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="1_1_Dates" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -234,6 +208,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="ClassPractice" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hex.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="hex_graphics" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ClassPractice" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hex_graphics.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -361,19 +352,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.Rational" />
-      <item index="1" class="java.lang.String" itemvalue="Python.1_1_Dates" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Connect4_Will" />
-      <item index="3" class="java.lang.String" itemvalue="Python.boxes" />
-      <item index="4" class="java.lang.String" itemvalue="Python.hex" />
+      <item index="0" class="java.lang.String" itemvalue="Python.1_1_Dates" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Connect4_Will" />
+      <item index="2" class="java.lang.String" itemvalue="Python.boxes" />
+      <item index="3" class="java.lang.String" itemvalue="Python.hex" />
+      <item index="4" class="java.lang.String" itemvalue="Python.hex_graphics" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.hex" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Connect4_Will" />
-        <item index="2" class="java.lang.String" itemvalue="Python.boxes" />
-        <item index="3" class="java.lang.String" itemvalue="Python.1_1_Dates" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Rational" />
+        <item index="1" class="java.lang.String" itemvalue="Python.hex_graphics" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Connect4_Will" />
+        <item index="3" class="java.lang.String" itemvalue="Python.boxes" />
+        <item index="4" class="java.lang.String" itemvalue="Python.1_1_Dates" />
       </list>
     </recent_temporary>
   </component>
@@ -382,13 +373,13 @@
     <configuration>C:\Users\Owner\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1378" height="780" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24925596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27407408" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.269514" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -430,7 +421,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="26" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$USER_HOME$/PycharmProjects/W&amp;P_Seg/segregationSim.py</url>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="39" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -439,10 +436,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#20#0" expanded="false" />
-            <element signature="e#55#264#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -450,19 +443,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#113#1" expanded="false" />
-            <element signature="e#397#496#1" expanded="false" />
-            <element signature="e#980#1129#0" expanded="false" />
-            <element signature="e#1160#1280#0" expanded="false" />
-            <element signature="e#1328#1992#0" expanded="false" />
-            <element signature="e#1328#1721#1" expanded="false" />
-            <element signature="e#2031#2148#0" expanded="false" />
-            <element signature="e#2180#2358#0" expanded="false" />
-            <element signature="e#2394#2530#0" expanded="false" />
-            <element signature="e#2567#3538#0" expanded="false" />
-            <element signature="e#3572#4158#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -470,10 +450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#20#0" expanded="false" />
-            <element signature="e#55#264#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -481,19 +457,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#113#1" expanded="false" />
-            <element signature="e#397#496#1" expanded="false" />
-            <element signature="e#980#1129#0" expanded="false" />
-            <element signature="e#1160#1280#0" expanded="false" />
-            <element signature="e#1328#1992#0" expanded="false" />
-            <element signature="e#1328#1721#1" expanded="false" />
-            <element signature="e#2031#2148#0" expanded="false" />
-            <element signature="e#2180#2358#0" expanded="false" />
-            <element signature="e#2394#2530#0" expanded="false" />
-            <element signature="e#2567#3538#0" expanded="false" />
-            <element signature="e#3572#4158#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -501,19 +464,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#113#1" expanded="false" />
-            <element signature="e#397#496#1" expanded="false" />
-            <element signature="e#980#1129#0" expanded="false" />
-            <element signature="e#1160#1280#0" expanded="false" />
-            <element signature="e#1328#1992#0" expanded="false" />
-            <element signature="e#1328#1721#1" expanded="false" />
-            <element signature="e#2031#2148#0" expanded="false" />
-            <element signature="e#2180#2358#0" expanded="false" />
-            <element signature="e#2394#2530#0" expanded="false" />
-            <element signature="e#2567#3538#0" expanded="false" />
-            <element signature="e#3572#4158#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -598,10 +548,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#20#0" expanded="false" />
-            <element signature="e#55#264#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -609,27 +555,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PycharmProjects/W&amp;P_Seg/segregationSim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#17#113#1" expanded="false" />
-            <element signature="e#397#496#1" expanded="false" />
-            <element signature="e#980#1129#0" expanded="false" />
-            <element signature="e#1160#1280#0" expanded="false" />
-            <element signature="e#1328#1992#0" expanded="false" />
-            <element signature="e#1328#1721#1" expanded="false" />
-            <element signature="e#2031#2148#0" expanded="false" />
-            <element signature="e#2180#2358#0" expanded="false" />
-            <element signature="e#2394#2530#0" expanded="false" />
-            <element signature="e#2567#3538#0" expanded="false" />
-            <element signature="e#3572#4158#0" expanded="false" />
+            <element signature="e#939#2119#0" expanded="false" />
+            <element signature="e#2167#2902#0" expanded="false" />
+            <element signature="e#2944#3732#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hex_graphics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.042735044">
+          <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hex.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65800864">
-          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-          <folding />
+        <state vertical-scroll-proportion="0.61538464">
+          <caret line="246" column="0" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
+          <folding>
+            <element signature="e#79#195#0" expanded="false" />
+            <element signature="e#229#850#0" expanded="false" />
+            <element signature="e#229#282#1" expanded="false" />
+            <element signature="e#891#1059#0" expanded="false" />
+            <element signature="e#891#956#1" expanded="false" />
+            <element signature="e#1106#1315#0" expanded="false" />
+            <element signature="e#1366#2436#0" expanded="false" />
+            <element signature="e#2478#5195#0" expanded="false" />
+            <element signature="e#5237#7952#0" expanded="false" />
+            <element signature="e#7986#9315#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
