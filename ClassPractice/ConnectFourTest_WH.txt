@@ -1,0 +1,136 @@
+Score: 8/9
+(correct bug by Monday 3/28 to earn full credit)
+
+You have one error on line 183
+
+Traceback (most recent call last):
+  File "/Users/becca.elenzil/GitHub/AdvCS/AdvCS_WH/ClassPractice/Connect4_Will.py", line 183, in <module>
+    print "b.allowsMove(2) should be False == ",b.allowsMove(2)
+  File "/Users/becca.elenzil/GitHub/AdvCS/AdvCS_WH/ClassPractice/Connect4_Will.py", line 63, in allowsMove
+    if self.data[0][c] != " " or c < 0 or c >= self.width:
+IndexError: list index out of range
+
+output of tests with line 183 commented out:
+
+print a 7 x 6 board with the columns numbered
+---------------------------------------------
+
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+---------------
+ 0 1 2 3 4 5 6
+
+---------------------------------------------
+test addMove
+---------------------------------------------
+
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+|X| | | | | | |
+|O| | | | | | |
+|X| | |O|O|O|O|
+---------------
+ 0 1 2 3 4 5 6
+
+==
+
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+|X| | | | | | |
+|O| | | | | | |
+|X| | |O|O|O|O|
+---------------
+ 0 1 2 3 4 5 6
+
+---------------------------------------------
+test clear
+---------------------------------------------
+
+print an empty board
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+|X| | | | | | |
+|O| | | | | | |
+|X| | | | | | |
+---------------
+ 0 1 2 3 4 5 6
+
+---------------------------------------------
+test allowsMove
+---------------------------------------------
+
+|O| |
+|X| |
+-----
+ 0 1
+
+b.allowsMove(-1) should be False ==  False
+b.allowsMove(0) should be False ==  False
+b.allowsMove(1) should be True ==  True
+
+---------------------------------------------
+test isFull
+---------------------------------------------
+
+| | |
+| | |
+-----
+ 0 1
+
+b.isFull() should be False ==  False
+
+|O|O|
+|X|X|
+-----
+ 0 1
+
+b.isFull() should be True ==  True
+
+---------------------------------------------
+test delMove
+---------------------------------------------
+
+|O|O|
+|X|X|
+-----
+ 0 1
+after the following commands:
+ b.delMove(1)
+ b.delMove(1)
+ b.delMove(1)
+ b.delMove(0)
+ The board should look like:
+ | | |
+ |X| |
+ -----
+  0 1
+  ==
+| | |
+|X| |
+-----
+ 0 1
+
+---------------------------------------------
+test winsFor
+---------------------------------------------
+
+if b.setBoard( '00102030' ), then b.winsFor('X') should be True ==  True
+if b.setBoard( '00102030' ), then b.winsFor('O') should be True ==  True
+if b.setBoard( '23344545515'  ), then b.winsFor('X') should be True ==  True
+if b.setBoard( '23344545515'  ), then b.winsFor('O') should be False ==  False
+
+---------------------------------------------
+host game
+---------------------------------------------
+
+I played with ________
+Everything works!
+or
+It doesn't work
