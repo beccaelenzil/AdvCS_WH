@@ -212,17 +212,19 @@ class Board():
         return False
 
     def playGame(self):
-        print("Player one is X, player 2 is W\nPlayer one goes first\n")
+        print("Player one is X, player 2 is W\nPlayer one goes first")
+        print("X wants to connect horizontally, W wants to connect vertically\n")
         print self
         while True:
             allowed = False
-            p1row = int(input("Player 1, what row? "))
-            p1col = int(input("Player 1, what column? "))
+            print "Player 1"
+            p1row = int(input("Row: "))
+            p1col = int(input("Column: "))
             allowed = self.legal(p1row, p1col)
             while not allowed:
                 print("Illegal Move! Try again.")
-                p1row = int(input("Player 1, what row? "))
-                p1col = int(input("Player 1, what column? "))
+                p1row = int(input("Row: "))
+                p1col = int(input("Column: "))
                 allowed = self.legal(p1row, p1col)
             self.play("X", p1row, p1col)
             print self
@@ -230,13 +232,14 @@ class Board():
                 print("Player 1 Wins!")
                 return
             allowed = False
-            p2row = int(input("Player 2, what row? "))
-            p2col = int(input("Player 2, what column? "))
+            print "Player 2"
+            p2row = int(input("Row: "))
+            p2col = int(input("Column: "))
             allowed = self.legal(p2row, p2col)
             while not allowed:
                 print("Illegal Move! Try again.")
-                p2row = int(input("Player 2, what row? "))
-                p2col = int(input("Player 2, what column? "))
+                p2row = int(input("Row: "))
+                p2col = int(input("Column: "))
                 allowed = self.legal(p2row, p2col)
             self.play("W", p2row, p2col)
             print self
@@ -244,6 +247,5 @@ class Board():
                 print("Player 2 Wins!")
                 return
 
-
-test = Board(6)
+test = Board(4)
 test.playGame()

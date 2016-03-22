@@ -91,13 +91,13 @@ class Board:
             for row in range(0,H-3):
                 if D[row][col] == ox and D[row+1][col] == ox and D[row+2][col] == ox and D[row+3][col] == ox:
                     return True
-        for row in range(0,W-3):
-            for col in range(0,H-3):
+        for col in range(0,W-3):
+            for row in range(0,H-3):
                 if D[row][col] == ox and D[row+1][col+1] == ox and D[row+2][col+2] == ox and D[row+3][col+3] == ox:
                     return True
-        for row in range(0,W-3):
-            for col in range(3,H):
-                if D[row][col] == ox and D[row+1][col-1] == ox and D[row+2][col-2] == ox and D[row+3][col-3] == ox:
+        for col in range(0,W-3):
+            for row in range(3,H):
+                if D[row][col] == ox and D[row-1][col+1] == ox and D[row-2][col+2] == ox and D[row-3][col+3] == ox:
                     return True
         return False
 
@@ -128,10 +128,10 @@ def connectFour():
     game = Board(width, height)
     game.hostGame()
 
-#connectFour()
+connectFour()
 
 # Connect Four Tests
-
+"""
 print "---------------------------------------------"
 print "print a 7 x 6 board with the columns numbered"
 print "---------------------------------------------\n"
@@ -249,4 +249,4 @@ print "I played with ________"
 print "Everything works!"
 print "or"
 print "It doesn't work"
-
+"""
