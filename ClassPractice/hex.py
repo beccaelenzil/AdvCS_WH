@@ -247,7 +247,5 @@ class Board():
                 print("Player 2 Wins!")
                 return
 
-"""
 test = Board(4)
 test.playGame()
-"""
