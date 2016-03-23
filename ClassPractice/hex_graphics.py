@@ -1,4 +1,6 @@
 import pygame
+import math
+import time
 from hex import *
 
 # THE WONDERFUL WORLD OF COLOR! (Copyright: The Walt Disney Company)
@@ -14,10 +16,10 @@ CYAN = (0, 255, 255)
 # Setup the Window etc
 cell_size = 4
 cell_gap = 35
-screen_width = 600
-screen_height = 600
 width = 8
-height = 8
+height = width
+screen_width = (cell_size + cell_gap) * width + height * (cell_size + cell_gap) / 2
+screen_height = 20 + (cell_size + cell_gap - 5) * height
 pygame.init()
 font = pygame.font.SysFont('Calibri', 12, False, False)
 # Set the width and height of the screen [width, height]
@@ -32,9 +34,9 @@ def drawBoard(A):
         y_pos = 10 + (cell_size + cell_gap - 5) * row
         for col in range(width):
             x_pos = 10 + (cell_size + cell_gap) * col + (height - row) * (cell_size + cell_gap) / 2
-            vertices = [(x_pos,y_pos),(x_pos+4*cell_size,y_pos+2*cell_size)\
-                ,(x_pos+4*cell_size,y_pos+7*cell_size),(x_pos,y_pos+9*cell_size)\
-                ,(x_pos-4*cell_size,y_pos+7*cell_size),(x_pos-4*cell_size,y_pos+2*cell_size)]
+            vertices = [(x_pos, y_pos), (x_pos+4*cell_size, y_pos+2*cell_size),
+                        (x_pos+4*cell_size, y_pos+7*cell_size),(x_pos, y_pos+9*cell_size),
+                        (x_pos-4*cell_size, y_pos+7*cell_size),(x_pos-4*cell_size, y_pos+2*cell_size)]
             if A.tiles[row][col] == "O":
                 pygame.draw.polygon(screen, WHITE, vertices)
             elif A.tiles[row][col] == "W":
@@ -42,23 +44,53 @@ def drawBoard(A):
             elif A.tiles[row][col] == "X":
                 pygame.draw.polygon(screen, RED, vertices)
 
+
+def mouseData():
+    """
+    :return: Concise summary of mouse data
+    """
+    output = [False, 0, 0]
+    if pygame.mouse.get_pressed()[0] == 1:
+        output[0] = True
+    mouseloc = pygame.mouse.get_pos()
+    output[1] = mouseloc[0]
+    output[2] = mouseloc[1]
+    return output
+
+
+def clickInput(board, type):
+    """
+    :param type: Type of piece to be played
+    :return: Checks the location of the cursor and registers a click on a particular tile
+    """
+    mouseinfo = mouseData()
+    row = int(math.floor((mouseinfo[2] - 10)/(cell_size + cell_gap - 5)))
+    column = int(math.floor(((mouseinfo[1] - (10 + ((height - (row + 1)) *
+                                                    (cell_size + cell_gap) / 2)))/(cell_size + cell_gap))))
+    if (0 <= row < height) and (0 <= column < width):
+        board.play(type, row, column)
+
 done = False
 
 clock = pygame.time.Clock()
-board = Board(8)
+board = Board(width)
+turn = "W"
+again = time.time()
 
 while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
-    pygame.draw.rect(screen, BLACK, [0, 0, 1000, 1000])
-    mousestats = pygame.mouse.get_pressed()
-    mouseloc = pygame.mouse.get_pos()
     drawBoard(board)
-    text = font.render(str(mousestats), True, WHITE)
-    text2 = font.render(str(mouseloc), True, WHITE)
-    screen.blit(text, [300, 300])
-    screen.blit(text2, [350, 300])
+    mouseinfo = mouseData()
+    now = time.time()
+    if mouseinfo[0] and (now - again > 1):
+        clickInput(board, turn)
+        if turn == "W":
+            turn = "X"
+        else:
+            turn = "W"
+        again = time.time()
     pygame.display.flip()
 
 
