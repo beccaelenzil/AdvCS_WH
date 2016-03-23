@@ -46,8 +46,8 @@
       <file leaf-file-name="hex_graphics.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hex_graphics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6748166">
-              <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.65281177">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -169,7 +169,7 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python.hex">
+  <component name="RunManager" selected="Python.hex_graphics">
     <configuration default="false" name="1_1_Dates" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -386,8 +386,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.hex" />
-        <item index="1" class="java.lang.String" itemvalue="Python.hex_graphics" />
+        <item index="0" class="java.lang.String" itemvalue="Python.hex_graphics" />
+        <item index="1" class="java.lang.String" itemvalue="Python.hex" />
         <item index="2" class="java.lang.String" itemvalue="Python.Connect4_Will" />
         <item index="3" class="java.lang.String" itemvalue="Python.boxes" />
         <item index="4" class="java.lang.String" itemvalue="Python.1_1_Dates" />
@@ -399,7 +399,7 @@
     <configuration>C:\Users\Owner\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24925596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -458,6 +458,47 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/hex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#19#9333#0" expanded="false" />
+            <element signature="e#79#195#0" expanded="false" />
+            <element signature="e#229#850#0" expanded="false" />
+            <element signature="e#229#282#1" expanded="false" />
+            <element signature="e#891#1059#0" expanded="false" />
+            <element signature="e#891#956#1" expanded="false" />
+            <element signature="e#1106#1315#0" expanded="false" />
+            <element signature="e#1366#2436#0" expanded="false" />
+            <element signature="e#2478#5195#0" expanded="false" />
+            <element signature="e#5237#7952#0" expanded="false" />
+            <element signature="e#7986#9333#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hex_graphics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PycharmProjects/W&amp;P_Seg/segregationSim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+          <folding>
+            <element signature="e#2167#2902#0" expanded="false" />
+            <element signature="e#2944#3732#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hex.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -601,9 +642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.007352941">
           <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding>
-            <element signature="e#17#4158#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -640,8 +678,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hex_graphics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6748166">
-          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.65281177">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
