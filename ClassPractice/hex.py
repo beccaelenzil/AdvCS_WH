@@ -42,11 +42,13 @@ class Board():
         """
         if self.legal(row,col):
             self.tiles[row][col] = piece
+            return True
         else:
             return False
 
     def nodeCheck(self, type, row, col):
         # Assumes all neighbours are empty nodes
+        # Checks to see if neighbors are the same as the node being checked
         """
           0  1
          2  O  3
@@ -154,7 +156,7 @@ class Board():
         for i in range(self.width):
             if self.tiles[0][i] == type:
                 checked[0][i] = "Y"
-                reps = self.nodeCheck(type, i, 0)
+                reps = self.nodeCheck(type, 0, i)
                 if reps[4] == True:
                     checked[1][i] = "P"
                     more = True

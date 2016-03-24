@@ -1,6 +1,5 @@
 import pygame
 import math
-import time
 from hex import *
 
 # THE WONDERFUL WORLD OF COLOR! (Copyright: The Walt Disney Company)
@@ -21,7 +20,8 @@ height = width
 screen_width = (cell_size + cell_gap) * width + height * (cell_size + cell_gap) / 2
 screen_height = 20 + (cell_size + cell_gap - 5) * height
 pygame.init()
-font = pygame.font.SysFont('Calibri', 12, False, False)
+font = pygame.font.SysFont('Calibri', 48, False, False)
+fonttwo = pygame.font.SysFont('Calibri', 16, False, False)
 # Set the width and height of the screen [width, height]
 size = (screen_width, screen_height)
 screen = pygame.display.set_mode(size)
@@ -39,9 +39,9 @@ def drawBoard(A):
                         (x_pos-4*cell_size, y_pos+7*cell_size),(x_pos-4*cell_size, y_pos+2*cell_size)]
             if A.tiles[row][col] == "O":
                 pygame.draw.polygon(screen, WHITE, vertices)
-            elif A.tiles[row][col] == "W":
+            elif A.tiles[row][col] == "H":
                 pygame.draw.polygon(screen, BLUE, vertices)
-            elif A.tiles[row][col] == "X":
+            elif A.tiles[row][col] == "V":
                 pygame.draw.polygon(screen, RED, vertices)
 
 
@@ -63,35 +63,67 @@ def clickInput(board, type):
     :param type: Type of piece to be played
     :return: Checks the location of the cursor and registers a click on a particular tile
     """
-    mouseinfo = mouseData()
-    row = int(math.floor((mouseinfo[2] - 10)/(cell_size + cell_gap - 5)))
-    column = int(math.floor(((mouseinfo[1] - (10 + ((height - (row + 1)) *
-                                                    (cell_size + cell_gap) / 2)))/(cell_size + cell_gap))))
+    played = False
+    mouseinf = mouseData()
+    row = int(math.floor((mouseinf[2] - 10)/(cell_size + cell_gap - 5)))
+    column = int(math.floor(((mouseinf[1] - (10 + ((height - (row + 1)) *
+                                                   (cell_size + cell_gap) / 2)))/(cell_size + cell_gap))))
     if (0 <= row < height) and (0 <= column < width):
-        board.play(type, row, column)
+        played = board.play(type, row, column)
+    return played
+
+
+def printRules():
+    rulesa = fonttwo.render("Blue connects across", True, CYAN)
+    rulesb = fonttwo.render("Red connects down", True, CYAN)
+    rulesc = fonttwo.render("Blue goes first", True, CYAN)
+    screen.blit(rulesa, [10, 10])
+    screen.blit(rulesb, [10, 30])
+    screen.blit(rulesc, [10, 50])
 
 done = False
-
-clock = pygame.time.Clock()
+done2 = False
 board = Board(width)
-turn = "W"
-again = time.time()
+turn = "H"
+played = True
+winner = "Nobody"
 
 while not done:
+    # Blue wins across, Red wins down
+    # Blue goes first
+    printRules()
+    mouseinfo = mouseData()
+    if mouseinfo[0]:
+        played = False
+        played = clickInput(board, turn)
+        if played:
+            if turn == "H":
+                turn = "V"
+            else:
+                turn = "H"
+    done = board.checkWinHz("H")
+    if done:
+        winner = "Blue"
+    done = board.checkWinVt("V")
+    if done and (winner != "Blue"):
+        winner = "Red"
+    drawBoard(board)
+    pygame.display.flip()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
-    drawBoard(board)
-    mouseinfo = mouseData()
-    now = time.time()
-    if mouseinfo[0] and (now - again > 1):
-        clickInput(board, turn)
-        if turn == "W":
-            turn = "X"
-        else:
-            turn = "W"
-        again = time.time()
-    pygame.display.flip()
+            done2 = True
 
+while not done2:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done2 = True
+    pygame.draw.rect(screen, BLACK, [0,0,screen_width,screen_height])
+    drawBoard(board)
+    wintexta = font.render(winner, True, CYAN)
+    wintextb = font.render("Wins!", True, CYAN)
+    screen.blit(wintexta, [5, 5])
+    screen.blit(wintextb, [5, 60])
+    pygame.display.flip()
 
 
