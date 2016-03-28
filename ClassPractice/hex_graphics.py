@@ -15,7 +15,7 @@ CYAN = (0, 255, 255)
 # Setup the Window etc
 cell_size = 4
 cell_gap = 35
-width = 8
+width = 12
 height = width
 screen_width = (cell_size + cell_gap) * width + height * (cell_size + cell_gap) / 2
 screen_height = 20 + (cell_size + cell_gap - 5) * height

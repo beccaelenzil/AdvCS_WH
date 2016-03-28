@@ -22,10 +22,10 @@ class GenericBot:
                               axis = vector(0, 1, 0))
         for part in self.parts:
             part.rotate(angle = theta, axis = vector(0, 1, 0),
-                        origin = self.position)
+                        origin = self.location)
 
     def forward(self):
-        self.position += self.heading * self.speed
+        self.location += self.heading * self.speed
         for part in self.parts:
             part.pos += self.heading * self.speed
 
