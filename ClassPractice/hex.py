@@ -1,3 +1,5 @@
+import random
+
 class Board():
     """ Board for Hex """
     def __init__(self, size):
@@ -88,22 +90,25 @@ class Board():
         return full
 
     def checkWinHz(self, type):
+        """
+        :return: Checks for a horizontal win for a piece of type 'type'
+        """
         checked = [["N"] * self.width for row in range(self.height)]
         more = False
         for i in range(self.height):
             if self.tiles[i][0] == type:
                 checked[i][0] = "Y"
                 reps = self.nodeCheck(type, i, 0)
-                if reps[3] == True:
+                if reps[3]:
                     checked[i][1] = "P"
                     more = True
                 try:
-                    if reps[5] == True:
+                    if reps[5]:
                         checked[i+1][1] = "P"
                         more = True
                 except IndexError:
                     True
-        while more == True:
+        while more:
             more = False
             for row in range(self.height):
                 for col in range(self.height):
@@ -151,6 +156,9 @@ class Board():
         return False
 
     def checkWinVt(self, type):
+        """
+        :return: checks for a vertical win for a piece of type 'type'
+        """
         checked = [["N"] * self.width for row in range(self.height)]
         more = False
         for i in range(self.width):
@@ -214,6 +222,9 @@ class Board():
         return False
 
     def playGame(self):
+        """
+        return: Plays a text based version of the game "Hex"
+        """
         print("Player one is X, player 2 is W\nPlayer one goes first")
         print("X wants to connect horizontally, W wants to connect vertically\n")
         print self
@@ -248,6 +259,32 @@ class Board():
             if self.checkWinVt("W") == True:
                 print("Player 2 Wins!")
                 return
+
+class hexAI():
+    """Basic AI player"""
+    def __init__(self, hv):
+        """
+        :return: initiates with a tile type
+        """
+        self.hv = hv
+
+    def randPlay(self, board):
+        """
+        :return Plays a random legal move on the board
+        """
+        needsmove = True
+        while needsmove:
+            row = random.choice(range(board.height))
+            col = random.choice(range(board.width))
+            if board.legal(row, col):
+                needsmove = False
+        board.play(self.hv, row, col)
+
+
+
+
+
+
 
 """
 test = Board(4)

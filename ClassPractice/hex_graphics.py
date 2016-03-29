@@ -93,7 +93,7 @@ while not done:
     # Blue goes first
     printRules()
     mouseinfo = mouseData()
-    if mouseinfo[0]:
+    if mouseinfo[0] and turn == "H":
         played = False
         played = clickInput(board, turn)
         if played:
@@ -101,6 +101,9 @@ while not done:
                 turn = "V"
             else:
                 turn = "H"
+    if turn == "V":
+        hexAI("V").randPlay(board)
+        turn = "H"
     done = board.checkWinHz("H")
     if done:
         winner = "Blue"

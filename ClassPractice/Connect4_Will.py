@@ -121,6 +121,12 @@ class Board:
                 print "O Wins!"
                 break
 
+def copyBoard(board):
+    output = Board(board.width, board.height)
+    for row in range(board.height):
+        for col in range(board.width):
+            output.data[row][col] = board.data[row][col]
+    return output
 
 def connectFour():
     width = 7
@@ -128,7 +134,7 @@ def connectFour():
     game = Board(width, height)
     game.hostGame()
 
-connectFour()
+# connectFour()
 
 # Connect Four Tests
 """
