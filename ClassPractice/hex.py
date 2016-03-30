@@ -114,7 +114,7 @@ class Board():
                 for col in range(self.height):
                     if checked[row][col] == "P":
                         if col == self.width - 1:
-                            return True
+                            return [True, "H"]
                         checked[row][col] = "Y"
                         reps = self.nodeCheck(type, row, col)
                         try:
@@ -153,7 +153,7 @@ class Board():
                                 more = True
                         except IndexError:
                             True
-        return False
+        return [False, "N"]
 
     def checkWinVt(self, type):
         """
@@ -180,7 +180,7 @@ class Board():
                 for col in range(self.width):
                     if checked[row][col] == "P":
                         if row == self.height - 1:
-                            return True
+                            return [True, "V"]
                         checked[row][col] = "Y"
                         reps = self.nodeCheck(type, row, col)
                         try:
@@ -219,7 +219,7 @@ class Board():
                                 more = True
                         except IndexError:
                             True
-        return False
+        return [False, "N"]
 
     def playGame(self):
         """
@@ -266,6 +266,7 @@ class hexAI():
         """
         :return: initiates with a tile type
         """
+        #The type of tile to be played
         self.hv = hv
 
     def randPlay(self, board):
@@ -274,16 +275,21 @@ class hexAI():
         """
         needsmove = True
         while needsmove:
+            # Picks a random square on the board that is a legal move
             row = random.choice(range(board.height))
             col = random.choice(range(board.width))
             if board.legal(row, col):
                 needsmove = False
+        # Plays the move
         board.play(self.hv, row, col)
 
+    def smartPlay(self, board):
+        return
 
 
 
 
+# Board(6).playGame()
 
 
 """

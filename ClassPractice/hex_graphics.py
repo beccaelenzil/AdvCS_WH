@@ -28,7 +28,7 @@ screen = pygame.display.set_mode(size)
 
 pygame.display.set_caption("Hex")
 
-
+# Draws the pretty li'l hexagons on the screen
 def drawBoard(A):
     for row in range(height):
         y_pos = 10 + (cell_size + cell_gap - 5) * row
@@ -44,7 +44,7 @@ def drawBoard(A):
             elif A.tiles[row][col] == "V":
                 pygame.draw.polygon(screen, RED, vertices)
 
-
+# Where our friend Jerry is
 def mouseData():
     """
     :return: Concise summary of mouse data
@@ -57,7 +57,7 @@ def mouseData():
     output[2] = mouseloc[1]
     return output
 
-
+# Plays a piece at a certain square
 def clickInput(board, type):
     """
     :param type: Type of piece to be played
@@ -104,12 +104,11 @@ while not done:
     if turn == "V":
         hexAI("V").randPlay(board)
         turn = "H"
-    done = board.checkWinHz("H")
-    if done:
-        winner = "Blue"
-    done = board.checkWinVt("V")
-    if done and (winner != "Blue"):
-        winner = "Red"
+    # Checks for winners
+    hcheck = board.checkWinHz("H")
+    vcheck = board.checkWinVt("V")
+    if hcheck[0] or vcheck[0]:
+        done = True
     drawBoard(board)
     pygame.display.flip()
     for event in pygame.event.get():
@@ -122,6 +121,10 @@ while not done2:
         if event.type == pygame.QUIT:
             done2 = True
     pygame.draw.rect(screen, BLACK, [0,0,screen_width,screen_height])
+    if hcheck[1] == "H":
+        winner = "Blue"
+    else:
+        winner = "Red"
     drawBoard(board)
     wintexta = font.render(winner, True, CYAN)
     wintextb = font.render("Wins!", True, CYAN)
