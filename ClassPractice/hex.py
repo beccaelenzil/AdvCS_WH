@@ -458,7 +458,12 @@ class hexLv2(hexAI):
         :return: Tells us if a block is possible against V
         """
         try:
-            if ((board.tiles[row-1][col-1] == "V") and (board.tiles[row][col-1] == "H")) or ((board))
+            if ((board.tiles[row-1][col-1] == "V") and (board.tiles[row][col-1] == "H")) or ((board.tiles[row-1][col] == "V") and (board.tiles[row][col+1] == "H")) or ((board.tiles[row+1][col] == "V") and (board.tiles[row][col-1] == "H")) or ((board.tiles[row+1][col+1] == "V") and (board.tiles[row][col+1] == "H")):
+                return True
+            else:
+                return False
+        except IndexError:
+            return False
 
     def block(self, board, row, col):
         """
@@ -466,6 +471,10 @@ class hexLv2(hexAI):
         """
         if self.hv == "V":
             if self.canBlockH(board, row, col):
+                return True
+            return False
+        if self.hv == "H":
+            if self.canBlockV(board, row, col):
                 return True
             return False
 
