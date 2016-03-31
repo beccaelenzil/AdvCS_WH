@@ -102,7 +102,7 @@ while not done:
             else:
                 turn = "H"
     if turn == "V":
-        hexAI("V").randPlay(board)
+        hexAI("V").smartPlay(board)
         turn = "H"
     # Checks for winners
     hcheck = board.checkWinHz("H")

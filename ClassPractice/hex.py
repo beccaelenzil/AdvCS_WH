@@ -1,4 +1,5 @@
 import random
+import copy
 
 class Board():
     """ Board for Hex """
@@ -283,14 +284,187 @@ class hexAI():
         # Plays the move
         board.play(self.hv, row, col)
 
+    def otherTile(self):
+        """
+        :return: The other type of tile
+        """
+        if self.hv == "H":
+            return "V"
+        else:
+            return "H"
+
+    def wins(self, board, row, col):
+        """
+        :return: Tells if you can win on that square this move
+        """
+        b = copy.deepcopy(board)
+        b.play(self.hv, row, col)
+        if self.hv == "H":
+            if b.checkWinHz("H")[0]:
+                return True
+            else:
+                return False
+        if self.hv == "V":
+            if b.checkWinVt("V")[0]:
+                return True
+            else:
+                return False
+
+    def opWins(self, board, row, col):
+        """
+        :return: Tels if the opponent will win on that square on the next move
+        """
+        b = copy.deepcopy(board)
+        b.play(self.otherTile(), row, col)
+        if self.otherTile() == "H":
+            if b.checkWinHz("H")[0]:
+                return True
+            else:
+                return False
+        if self.otherTile() == "V":
+            if b.checkWinVt("V")[0]:
+                return True
+            else:
+                return False
+        return False
+
+    def emptyBetweenVD(self, board, row, col):
+        # Checks if the tiles looking down are empty
+        try:
+            if (board.tiles[row+1][col] == "O") and (board.tiles[row+1][col+1] == "O") and (board.tiles[row+2][col] == "O") and (board.tiles[row+2][col+2] == "O") and (board.tiles[row+2][col+1] == "V"):
+                return True
+            else:
+                return False
+        except IndexError:
+            return False
+
+    def emptyBetweenVU(self, board, row, col):
+        # Checks if the tiles looking up are empty
+        try:
+            if (board.tiles[row-1][col] == "O") and (board.tiles[row-1][col-1] == "O") and (board.tiles[row-2][col] == "O") and (board.tiles[row-2][col-2] == "O") and (board.tiles[row-2][col-1] == "V"):
+                return True
+            else:
+                return False
+        except IndexError:
+            return False
+
+    def emptyBetweenHL(self, board, row, col):
+        # Checks if the tiles looking left are empty
+        try:
+            if (board.tiles[row][col-1] == "O") and (board.tiles[row-1][col-1] == "O") and (board.tiles[row][col-2] == "O") and (board.tiles[row-2][col-2] == "O") and (board.tiles[row-1][col-2] == "H"):
+                return True
+            else:
+                return False
+        except IndexError:
+            return False
+
+    def emptyBetweenHR(self, board, row, col):
+        # Checks if the tiles looking right are empty
+        try:
+            if (board.tiles[row][col+1] == "O") and (board.tiles[row+1][col+1] == "O") and (board.tiles[row][col+2] == "O") and (board.tiles[row+2][col+2] == "O") and (board.tiles[row+1][col+2] == "H"):
+                return True
+            else:
+                return False
+        except IndexError:
+            return False
+
+    def defend(self, board, row, col):
+        """
+        :return: Trys to defend against an opponent attack
+        """
+        if self.hv == "H":
+            if self.emptyBetweenVD(board, row, col):
+                return True
+            if self.emptyBetweenVU(board, row, col):
+                return True
+            return False
+        if self.hv == "V":
+            if self.emptyBetweenHL(board, row, col):
+                return True
+            if self.emptyBetweenHR(board, row, col):
+                return True
+            return False
+
+    def nextToOther(self, board, row, col):
+        """
+        :return: The number of the other type of tile next to any square
+        """
+        Ot = self.otherTile()
+        any = False
+        count = 0
+        try:
+            if board.tiles[row-1][col-1] == Ot:
+                count += 1
+                any = True
+        except IndexError:
+            True
+        try:
+            if board.tiles[row-1][col] == Ot:
+                count +=1
+                any = True
+        except IndexError:
+            True
+        try:
+            if board.tiles[row][col-1] == Ot:
+                count += 1
+                any = True
+        except IndexError:
+            True
+        try:
+            if board.tiles[row+1][col] == Ot:
+                count += 1
+                any = True
+        except IndexError:
+            True
+        try:
+            if board.tiles[row+1][col+1] == Ot:
+                count += 1
+                any = True
+        except IndexError:
+            True
+        try:
+            if board.tiles[row][col+1] == Ot:
+                count += 1
+                any = True
+        except IndexError:
+            True
+        return [any, count]
+
     def smartPlay(self, board):
-        return
-
-
+        """
+        :return: Tries to not be a moron when playing
+        """
+        vals = [[0] * board.width for row in range(board.height)]
+        optimals = []
+        for row in range(board.height):
+            for col in range(board.width):
+                adjacency = self.nextToOther(board, row, col)
+                if board.tiles[row][col] != "O":
+                    vals[row][col] = -100
+                elif self.wins(board, row, col):
+                    vals[row][col] = 100
+                elif self.opWins(board, row, col):
+                    vals[row][col] = 90
+                elif self.defend(board, row, col):
+                    vals[row][col] = 80
+                elif adjacency[0]:
+                    vals[row][col] = 70
+                    if adjacency[1] == (2 or 3):
+                        vals[row][col] += 5
+                else:
+                    vals[row][col] = 0
+            optimals.append(max(vals[row]))
+        optimal = max(optimals)
+        indices = []
+        for row in range(board.height):
+            for col in range(board.width):
+                if vals[row][col] == optimal:
+                    indices.append([row, col])
+        choice = random.choice(indices)
+        board.play(self.hv, choice[0], choice[1])
 
 
 # Board(6).playGame()
-
 
 """
 test = Board(4)
