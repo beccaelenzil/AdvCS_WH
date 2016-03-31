@@ -270,7 +270,12 @@ class hexAI():
         #The type of tile to be played
         self.hv = hv
 
-    def randPlay(self, board):
+class hexLv1(hexAI):
+    """Really bad AI player"""
+    def __init__(self, hv):
+        hexAI.__init__(self, hv)
+
+    def play(self, board):
         """
         :return Plays a random legal move on the board
         """
@@ -283,6 +288,12 @@ class hexAI():
                 needsmove = False
         # Plays the move
         board.play(self.hv, row, col)
+
+class hexLv2(hexAI):
+    """This one isn't as dumb"""
+    def __init__(self, hv):
+        hexAI.__init__(self, hv)
+        self.lastmove = [0,0]
 
     def otherTile(self):
         """
@@ -430,12 +441,58 @@ class hexAI():
             True
         return [any, count]
 
-    def smartPlay(self, board):
+    def canBlockH(self, board, row, col):
+        """
+        :return: Tells us if a block is possible against H
+        """
+        try:
+            if ((board.tiles[row][col-1] == "H") and (board.tiles[row+1][col] == "V")) or ((board.tiles[row-1][col-1] == "H") and (board.tiles[row-1][col] == "V")) or ((board.tiles[row+1][col+1] == "H") and (board.tiles[row+1][col] == "V")) or ((board.tiles[row][col+1] == "H") and (board.tiles[row-1][col] == "V")):
+                return True
+            else:
+                return False
+        except IndexError:
+            return False
+
+    def canBlockV(self, board, row, col):
+        """
+        :return: Tells us if a block is possible against V
+        """
+        try:
+            if ((board.tiles[row-1][col-1] == "V") and (board.tiles[row][col-1] == "H")) or ((board))
+
+    def block(self, board, row, col):
+        """
+        :return: Tries to block an opponent's attack
+        """
+        if self.hv == "V":
+            if self.canBlockH(board, row, col):
+                return True
+            return False
+
+    def isOpposite(self, board, row, col):
+        """
+        :return: Checks if a move can break a potential path
+        """
+        Ot = self.otherTile()
+        try:
+            if (board.tiles[row-1][col] == Ot) and (board.tiles[row+1][col] == Ot) and self.nextToOther(board, row, col)[1] == 2:
+                return True
+            elif (board.tiles[row][col-1] == Ot) and (board.tiles[row][col+1] == Ot) and self.nextToOther(board, row, col)[1] == 2:
+                return True
+            elif (board.tiles[row-1][col-1] == Ot) and (board.tiles[row+1][col+1] == Ot) and self.nextToOther(board, row, col)[1] == 2:
+                return True
+            else:
+                return False
+        except IndexError:
+            return False
+
+    def play(self, board):
         """
         :return: Tries to not be a moron when playing
         """
         vals = [[0] * board.width for row in range(board.height)]
         optimals = []
+        justBlocked = False
         for row in range(board.height):
             for col in range(board.width):
                 adjacency = self.nextToOther(board, row, col)
@@ -445,6 +502,10 @@ class hexAI():
                     vals[row][col] = 100
                 elif self.opWins(board, row, col):
                     vals[row][col] = 90
+                elif self.block(board, row, col):
+                    vals[row][col] = 85
+                elif self.isOpposite(board, row, col):
+                    vals[row][col] = 86
                 elif self.defend(board, row, col):
                     vals[row][col] = 80
                 elif adjacency[0]:
@@ -461,6 +522,7 @@ class hexAI():
                 if vals[row][col] == optimal:
                     indices.append([row, col])
         choice = random.choice(indices)
+        self.lastmove = choice
         board.play(self.hv, choice[0], choice[1])
 
 

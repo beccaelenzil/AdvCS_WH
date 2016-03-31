@@ -92,6 +92,9 @@ while not done:
     # Blue wins across, Red wins down
     # Blue goes first
     printRules()
+    if turn == "V":
+        hexLv2("V").play(board)
+        turn = "H"
     mouseinfo = mouseData()
     if mouseinfo[0] and turn == "H":
         played = False
@@ -101,9 +104,6 @@ while not done:
                 turn = "V"
             else:
                 turn = "H"
-    if turn == "V":
-        hexAI("V").smartPlay(board)
-        turn = "H"
     # Checks for winners
     hcheck = board.checkWinHz("H")
     vcheck = board.checkWinVt("V")
