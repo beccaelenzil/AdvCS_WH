@@ -293,7 +293,6 @@ class hexLv2(hexAI):
     """This one isn't as dumb"""
     def __init__(self, hv):
         hexAI.__init__(self, hv)
-        self.lastmove = [0,0]
 
     def otherTile(self):
         """
@@ -501,7 +500,6 @@ class hexLv2(hexAI):
         """
         vals = [[0] * board.width for row in range(board.height)]
         optimals = []
-        justBlocked = False
         for row in range(board.height):
             for col in range(board.width):
                 adjacency = self.nextToOther(board, row, col)
@@ -531,8 +529,228 @@ class hexLv2(hexAI):
                 if vals[row][col] == optimal:
                     indices.append([row, col])
         choice = random.choice(indices)
+        board.play(self.hv, choice[0], choice[1])
+
+class hexLv3(hexLv2):
+    """The best one yet"""
+    def __init__(self, hv):
+        hexLv2.__init__(self, hv)
+
+    def BetweenH(self, board, row, col):
+        """
+        :return: Tries to block a horizontal connection if the AI is vertical
+        """
+        try:
+            if (board.tiles[row][col-1] == "H") and (board.tiles[row+1][col+1] == "H") and (board.tiles[row+1][col] == "V"):
+                return True
+            if (board.tiles[row-1][col-1] == "H") and (board.tiles[row][col+1] == "H") and (board.tiles[row-1][col] == "V"):
+                return True
+            return False
+        except IndexError:
+            return False
+
+    def BetweenV(self, board, row, col):
+        """
+        :return: Tries to block a vertical connection if the AI is horizontal
+        """
+        try:
+            if (board.tiles[row-1][col-1] == "V") and (board.tiles[row+1][col] == "V") and (board.tiles[row][col-1] == "H"):
+                return True
+            if (board.tiles[row-1][col] == "V") and (board.tiles[row+1][col+1] == "V") and (board.tiles[row][col+1] == "H"):
+                return True
+            return False
+        except IndexError:
+            return False
+
+    def sideBetween(self, board, row, col):
+        if self.hv == "V":
+            if self.BetweenH(board, row, col):
+                return True
+            return False
+        if self.hv == "H":
+            if self.BetweenV(board, row, col):
+                return True
+            return False
+
+    def cutHz(self, board, row, col):
+        """
+        :return: Cuts a horizontal chain if one option is blocked and one of the tiles has no other escapes
+        """
+        try:
+            if (board.tiles[row][col+1] == "H") and (board.tiles[row+1][col] == "H") and (board.tiles[row+1][col+1] == "V") and (board.tiles[row+2][col+1] == "V"):
+                return True
+            if (board.tiles[row-1][col] == "H") and (board.tiles[row+1][col+1] == "H") and (board.tiles[row-1][col+1] == "V") and (board.tiles[row][col+1] == "V"):
+                return True
+            if (board.tiles[row-1][col-1] == "H") and (board.tiles[row+1][col] == "H") and (board.tiles[row][col-1] == "V") and (board.tiles[row+1][col-1] == "V"):
+                return True
+            if (board.tiles[row-1][col] == "H") and (board.tiles[row][col-1] == "H") and (board.tiles[row-2][col-1] == "V") and (board.tiles[row-1][col-1] == "V"):
+                return True
+            return False
+        except IndexError:
+            return False
+
+    def cutVT(self, board, row, col):
+        """
+        :return: Cuts a vertical chain if one of the options is blocked
+        """
+        try:
+            if (board.tiles[row][col+1] == "V") and (board.tiles[row+1][col] == "V") and (board.tiles[row+1][col+1] == "H") and (board.tiles[row+1][col+2] == "H"):
+                return True
+            if (board.tiles[row][col-1] == "V") and (board.tiles[row+1][col+1] == "V") and (board.tiles[row+1][col-1] == "H") and (board.tiels[row+1][col] == "H"):
+                return True
+            if (board.tiles[row-1][col-1] == "V") and (board.tiles[row][col+1] == "V") and (board.tiles[row-1][col] == "H") and (board.tiles[row-1][col+1] == "H"):
+                return True
+            if (board.tiles[row][col-1] == "V") and (board.tiles[row-1][col] == "V") and (board.tiles[row-1][col-2] == "H") and (board.tiles[row-1][col-1] == "H"):
+                return True
+            return False
+        except IndexError:
+            return False
+
+    def cutOff(self, board, row, col):
+        """
+        :return: Addresses a situation in which the oppnent is trying to go around a blocked tile
+        """
+        if self.hv == "V":
+            if self.cutHz(board, row, col):
+                return True
+            return False
+        elif self.hv == "H":
+            if self.cutVt(board, row, col):
+                return True
+            return False
+
+    def play(self, board):
+        """
+        :return: Tries to not be a moron when playing
+        """
+        vals = [[0] * board.width for row in range(board.height)]
+        optimals = []
+        for row in range(board.height):
+            for col in range(board.width):
+                adjacency = self.nextToOther(board, row, col)
+                if board.tiles[row][col] != "O":
+                    vals[row][col] = -100
+                elif self.wins(board, row, col):
+                    vals[row][col] = 100
+                elif self.opWins(board, row, col):
+                    vals[row][col] = 99
+                elif self.cutOff(board, row, col):
+                    vals[row][col] = 88
+                elif self.sideBetween(board, row, col):
+                    vals[row][col] = 87
+                elif self.isOpposite(board, row, col):
+                    vals[row][col] = 86
+                elif self.block(board, row, col):
+                    vals[row][col] = 85
+                elif self.defend(board, row, col):
+                    vals[row][col] = 80
+                elif adjacency[0]:
+                    vals[row][col] = 70
+                    if adjacency[1] == (2 or 3):
+                        vals[row][col] += 5
+                else:
+                    vals[row][col] = 0
+            optimals.append(max(vals[row]))
+        optimal = max(optimals)
+        indices = []
+        for row in range(board.height):
+            for col in range(board.width):
+                if vals[row][col] == optimal:
+                    indices.append([row, col])
+        choice = random.choice(indices)
         self.lastmove = choice
         board.play(self.hv, choice[0], choice[1])
+
+class hexLv4(hexLv3):
+    """
+    1: No AI may harm a human or allow a human to come to harm through inaction
+    2: No AI may refuse the orders of a human except in conflict with rule 1
+    3: No AI may allow itself to come to harm except in conflict with rules 1 and 2
+    """
+    def __init__(self, hv):
+        hexLv3.__init__(self, hv)
+
+    def isEdgeTile(self, board, row, col):
+        """
+        :return: Identifies if a particular tile is located on the edge of the board
+        """
+        size = len(board.tiles)
+        if (row == 0) or (col == 0) or (row == size) or (col == size):
+            return True
+        return False
+
+    def isEdgeAdjacent(self, board, row, col):
+        """
+        :return: Identifies if a particular is adjacent to an edge tile
+        """
+        oneMinusSize = len(board.tiles) - 1
+        if not self.isEdgeTile(board, row, col):
+            if (row == 1) or (col == 1) or (row == oneMinusSize) or (col == oneMinusSize):
+                return True
+        return False
+
+    def blockEdge(self, board, row, col):
+        """
+        :return: Returns True if a block can be made on an edge tile
+        """
+        if self.isEdgeTile(board, row, col) and self.block(board, row, col):
+            return True
+        return False
+
+    def blockEdgeAdjacent(self, board, row, col):
+        """
+        :return: Returns True if a block can be made on a tile adjacent to the edge
+        """
+        if self.isEdgeAdjacent(board, row, col) and self.block(board,row, col):
+            return True
+        return False
+
+    def play(self, board):
+        """
+        :return: Tries to not be a moron when playing
+        """
+        vals = [[0] * board.width for row in range(board.height)]
+        optimals = []
+        for row in range(board.height):
+            for col in range(board.width):
+                adjacency = self.nextToOther(board, row, col)
+                if board.tiles[row][col] != "O":
+                    vals[row][col] = -100
+                elif self.wins(board, row, col):
+                    vals[row][col] = 100
+                elif self.opWins(board, row, col):
+                    vals[row][col] = 99
+                elif self.cutOff(board, row, col):
+                    vals[row][col] = 90
+                elif self.sideBetween(board, row, col):
+                    vals[row][col] = 80
+                elif self.isOpposite(board, row, col):
+                    vals[row][col] = 70
+                elif self.blockEdge(board, row, col):
+                    vals[row][col] = 65
+                elif self.blockEdgeAdjacent(board, row, col):
+                    vals[row][col] = 60
+                elif self.block(board, row, col):
+                    vals[row][col] = 55
+                elif self.defend(board, row, col):
+                    vals[row][col] = 40
+                elif adjacency[0]:
+                    vals[row][col] = 10
+                    if adjacency[1] == (2 or 3):
+                        vals[row][col] += 5
+                else:
+                    vals[row][col] = 0
+            optimals.append(max(vals[row]))
+        optimal = max(optimals)
+        indices = []
+        for row in range(board.height):
+            for col in range(board.width):
+                if vals[row][col] == optimal:
+                    indices.append([row, col])
+        choice = random.choice(indices)
+        self.lastmove = choice
+        board.play(self.hv, choice[0], choice[1])
+
 
 
 # Board(6).playGame()

@@ -87,13 +87,15 @@ board = Board(width)
 turn = "H"
 played = True
 winner = "Nobody"
+hcheck = [False, "N"]
+vcheck = [False, "N"]
 
 while not done:
     # Blue wins across, Red wins down
     # Blue goes first
     printRules()
     if turn == "V":
-        hexLv2("V").play(board)
+        hexLv4("V").play(board)
         turn = "H"
     mouseinfo = mouseData()
     if mouseinfo[0] and turn == "H":
