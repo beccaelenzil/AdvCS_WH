@@ -589,14 +589,14 @@ class hexLv3(hexLv2):
         except IndexError:
             return False
 
-    def cutVT(self, board, row, col):
+    def cutVt(self, board, row, col):
         """
         :return: Cuts a vertical chain if one of the options is blocked
         """
         try:
             if (board.tiles[row][col+1] == "V") and (board.tiles[row+1][col] == "V") and (board.tiles[row+1][col+1] == "H") and (board.tiles[row+1][col+2] == "H"):
                 return True
-            if (board.tiles[row][col-1] == "V") and (board.tiles[row+1][col+1] == "V") and (board.tiles[row+1][col-1] == "H") and (board.tiels[row+1][col] == "H"):
+            if (board.tiles[row][col-1] == "V") and (board.tiles[row+1][col+1] == "V") and (board.tiles[row+1][col-1] == "H") and (board.tiles[row+1][col] == "H"):
                 return True
             if (board.tiles[row-1][col-1] == "V") and (board.tiles[row][col+1] == "V") and (board.tiles[row-1][col] == "H") and (board.tiles[row-1][col+1] == "H"):
                 return True
@@ -751,11 +751,4 @@ class hexLv4(hexLv3):
         self.lastmove = choice
         board.play(self.hv, choice[0], choice[1])
 
-
-
 # Board(6).playGame()
-
-"""
-test = Board(4)
-test.playGame()
-"""

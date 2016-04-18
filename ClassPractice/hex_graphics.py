@@ -15,11 +15,12 @@ CYAN = (0, 255, 255)
 # Setup the Window and a bunch of variables
 cell_size = 4
 cell_gap = 35
-width = 12
+width = 15
 height = width
 screen_width = (cell_size + cell_gap) * width + height * (cell_size + cell_gap) / 2
 screen_height = 20 + (cell_size + cell_gap - 5) * height
 pygame.init()
+# Fonts
 font = pygame.font.SysFont('Calibri', 48, False, False)
 fonttwo = pygame.font.SysFont('Calibri', 16, False, False)
 fontthree = pygame.font.SysFont('Calibri', 32, False, False)
@@ -120,18 +121,23 @@ def printAllRules():
     screen.blit(rules9, [screen_width/2 - 300, screen_height/2 + 120])
 
 # Another slew of variables
+# Conditionals for the four game loopz
 done = False
 done2 = False
 done3 = False
 done4 = False
+# Creates the game board
 board = Board(width)
+# Sets default value of variables
 turn = "H"
 played = True
 winner = "Nobody"
 hcheck = [False, "N"]
 vcheck = [False, "N"]
-aiType = 1
-
+aitype = 0
+# Are there 2 AIs
+# This is hardcoded to have a player, but it can easily be changed
+aplayer = False
 
 while not done:
     for event in pygame.event.get():
@@ -140,6 +146,7 @@ while not done:
             done2 = True
             done3 = True
             done4 = True
+    # Print the full rules
     printAllRules()
     pygame.display.flip()
     pygame.draw.rect(screen, BLACK, [0, 0, screen_width, screen_height])
@@ -186,14 +193,26 @@ while not done3:
             hexLv4("V").play(board)
         turn = "H"
     mouseinfo = mouseData()
-    if mouseinfo[0] and turn == "H":
-        played = False
-        played = clickInput(board, turn)
-        if played:
-            if turn == "H":
-                turn = "V"
-            else:
-                turn = "H"
+    if aplayer:
+        if turn == "H":
+            if aiType == 1:
+                hexLv1("H").play(board)
+            elif aiType == 2:
+                hexLv2("H").play(board)
+            elif aiType == 3:
+                hexLv3("H").play(board)
+            elif aiType == 4:
+                hexLv4("H").play(board)
+            turn = "V"
+    else:
+        if mouseinfo[0] and turn == "H":
+            played = False
+            played = clickInput(board, turn)
+            if played:
+                if turn == "H":
+                    turn = "V"
+                else:
+                    turn = "H"
     # Checks for winners
     hcheck = board.checkWinHz("H")
     vcheck = board.checkWinVt("V")
