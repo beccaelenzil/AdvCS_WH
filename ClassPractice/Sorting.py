@@ -17,125 +17,148 @@ def makeList(length):
     return output
 
 
-def bubbleSort(list, graph):
-    length = len(list) - 1
+def bubbleSort(alist, graph):
+    length = len(alist) - 1
     compare = range(0,length+1)
     counter = 0
     for i in range(0, length):
         swapped = False
         for j in range(0, length - i):
-            if list[j] > list[j+1]:
-                list = swapItems(list, j, j+1)
+            if alist[j] > alist[j+1]:
+                alist = swapItems(alist, j, j+1)
                 counter += 1
                 swapped = True
                 if graph:
                     plot.clf()
-                    plot.bar(compare,list)
+                    plot.bar(compare,alist)
                     plot.pause(.001)
         if not swapped:
             break
     return counter
 
 
-def cocktailShakerSort(list):
-    length = len(list) - 1
+def cocktailShakerSort(alist):
+    length = len(alist) - 1
     compare = range(0,length+1)
     up = True
     for i in range(0, length):
         swapped = False
         if up:
             for j in range(i/2, length - i/2):
-                if list[j] > list[j+1]:
-                    list = swapItems(list, j, j+1)
+                if alist[j] > alist[j+1]:
+                    alist = swapItems(alist, j, j+1)
                     swapped = True
                     up = False
                     plot.clf()
-                    plot.bar(compare,list)
+                    plot.bar(compare,alist)
                     plot.pause(.001)
             if not swapped:
                 break
         else:
             for j in range(length - (i-1)/2, (i-1)/2, -1):
-                if list[j] < list[j-1]:
-                    list = swapItems(list, j, j-1)
+                if alist[j] < alist[j-1]:
+                    alist = swapItems(alist, j, j-1)
                     swapped = True
                     up = True
                     plot.clf()
-                    plot.bar(compare,list)
+                    plot.bar(compare,alist)
                     plot.pause(.001)
             if not swapped:
                 break
-    return list
+    return alist
 
 
-def selectSortReplace(list, graph):
-    length = len(list)
+def selectSortReplace(alist, graph):
+    length = len(alist)
     compare = range(0, length)
     count = 0
     for i in range(0, length):
         mindex = i
         for j in range(i, length):
-            if list[j] < list[mindex]:
+            if alist[j] < alist[mindex]:
                 mindex = j
         if mindex != i:
             count += 1
-            list = swapItems(list, i, mindex)
+            list = swapItems(alist, i, mindex)
         if graph:
             plot.clf()
-            plot.bar(compare,list)
+            plot.bar(compare,alist)
             plot.pause(.1)
     return count
 
 
-def selectSortShift(list, graph):
-    length = len(list)
+def selectSortShift(alist, graph):
+    length = len(alist)
     compare = range(0, length)
     output = []
     count = 0
     for i in range(0, length):
         mindex = 0
-        listlen = len(list)
+        listlen = len(alist)
         for j in range(0, listlen):
-            if list[j] < list[mindex]:
+            if alist[j] < alist[mindex]:
                 mindex = j
         if mindex != i:
             count += 1
-            output.append(list[mindex])
-            list.remove(list[mindex])
+            output.append(alist[mindex])
+            alist.remove(alist[mindex])
         if graph:
             plot.clf()
-            plot.bar(compare, output+list)
+            plot.bar(compare, output+alist)
             plot.pause(.1)
     return count
 
 
-def insertSort(list, graph):
-    length = len(list)
+def insertSort(alist, graph):
+    length = len(alist)
     compare = range(0, length)
     count = 0
     for i in range(length - 1):
         for j in range(i, -1, -1):
             count += 1
-            if list[j+1] < list [j]:
-                list = swapItems(list, j, j+1)
+            if alist[j+1] < alist [j]:
+                alist = swapItems(alist, j, j+1)
             else:
                 break
             if graph:
                 plot.clf()
-                plot.bar(compare,list)
+                plot.bar(compare,alist)
                 plot.pause(.1)
     return count
 
 
-def shellSort(list, graph):
-    length = len(list)
+# Not Functional
+def shellSort(alist, graph):
+    length = len(alist)
     for i in range(length):
         interval = length//(2 ^ (i+1))
         for j in range(interval):
             return True
 
+
+def quickSort(alist, stop, start = 0):
+    if stop - start <= 1:
+        return True
+    left = start
+    right = stop
+    pivot = alist[0]
+    while left <= right:
+        while alist[left] < pivot:
+            left += 1
+        while alist[right] > pivot:
+            right -= 1
+        if left <= right:
+            swapItems(alist, left, right)
+            left += 1
+            right -= 1
+    quickSort(alist, start, right)
+    quickSort(alist, left, stop)
+
+
+
+
 test = makeList(20)
-print insertSort(test, True)
+print quickSort(test, len(test)-1)
 
 
 def testSort(function):
@@ -149,5 +172,5 @@ def testSort(function):
 print testSort(bubbleSort)
 print testSort(selectSortReplace)
 print testSort(selectSortShift)
-"""
 print testSort(insertSort)
+"""
