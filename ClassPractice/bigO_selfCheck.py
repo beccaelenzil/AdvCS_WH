@@ -1,5 +1,6 @@
 def nSquaredMin(list):
     # This one is basically bubble sort
+    # And actually useless
     for i in range(1, len(list)+1):
         for j in range(len(list)-i):
             if list[j] > list[j+1]:

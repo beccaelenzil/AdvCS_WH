@@ -136,30 +136,51 @@ def shellSort(alist, graph):
             return True
 
 
-def quickSort(alist, stop, start = 0):
-    if stop - start <= 1:
-        return True
-    left = start
-    right = stop
-    pivot = alist[0]
-    while left <= right:
-        while alist[left] < pivot:
-            left += 1
-        while alist[right] > pivot:
-            right -= 1
-        if left <= right:
-            swapItems(alist, left, right)
-            left += 1
-            right -= 1
-    quickSort(alist, start, right)
-    quickSort(alist, left, stop)
+def quickSort(alist, start = 0, stop = -10):
+    if stop == -10:
+        stop = len(alist) - 1
+    if stop - start < 1:
+        return
+    else:
+        left = start
+        right = stop
+        pivot = alist[start]
+        while left <= right:
+            while alist[left] < pivot:
+                left += 1
+            while alist[right] > pivot:
+                right -= 1
+            if left <= right:
+                swapItems(alist, left, right)
+                left += 1
+                right -= 1
+        quickSort(alist, start, right)
+        quickSort(alist, left, stop)
+
+
+def mergeSort(blist):
+    """
+    :return: Merge sorts a list.
+    """
+    # Sorry for the list comp Becca :)
+    if len(blist) <= 1:
+        return
+    else:
+        fhalf = blist[:len(blist)/2]
+        shalf = blist[len(blist)/2:]
+        mergeSort(fhalf)
+        mergeSort(shalf)
+    nswr = [((fhalf.pop(0) if fhalf[0] < shalf[0] else shalf.pop(0)) if (len(fhalf) > 0 and len(shalf) > 0) else (fhalf.pop(0) if len(fhalf) > 0 else shalf.pop(0))) for i in range(len(blist))]
+    for i in range(len(nswr)):
+        blist[i] = nswr[i]
+
 
 
 
 
 test = makeList(20)
-print quickSort(test, len(test)-1)
-
+mergeSort(test)
+print test
 
 def testSort(function):
     count = []
