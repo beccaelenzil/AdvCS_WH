@@ -37,9 +37,9 @@ def parenChecker(parens):
 def balSymChecker(parens):
     storage = Stack()
     for i in parens:
-        if i == "(" or i == "[" or i == "{":
+        if i in "({[":
             storage.push(i)
-        elif i == ")" or i == "]" or i == "}":
+        elif i in ")}]":
             peek = storage.peek()
             if storage.isEmpty():
                 return False
@@ -59,3 +59,23 @@ def divideBy2(string):
         storage.push(int(string) % 2)
         string = int(string) // 2
     return "".join([str(storage.pop()) for j in range(storage.size())])
+
+
+def divideBy2baseN(string, N):
+    storage = Stack()
+    test = -1
+    increment = 0
+    while test > 0:
+        test = int(string) - N ^ increment
+    actNum = 0
+    num = int(string)
+    for i in range(0, increment - 1, -1):
+        if num - N^i > 0:
+            num -= N^i
+            actNum += N^i
+    while actNum != 0:
+        storage.push(actNum % 2)
+        actNum = actNum // 2
+    return "".join([str(storage.pop()) for j in range(storage.size())])
+
+print divideBy2baseN("10", 16)
