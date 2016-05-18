@@ -60,11 +60,33 @@ class LinkedList:
         else:
             prev.setNext(current.getNext())
 
+    def append(self, item):
+        end = False
+        current = self.head
+        while not end:
+            if current.getNext() == None:
+                end = True
+            current = current.getNext()
+        current.setNext(Node(item))
+
+    def insert(self, item, index):
+        temp = Node(item)
+        current = self.head
+        prev = None
+        for i in range(index):
+            prev = current
+            current = current.getNext()
+        prev.setNext(temp)
+        temp.setNext(current)
+
+
+"""
 link = LinkedList()
 link.add(10)
 link.add(3)
 link.add(1345)
-link.add(46)
+link.append(46)
 print link.size()
 link.remove(3)
 print link.size()
+"""
