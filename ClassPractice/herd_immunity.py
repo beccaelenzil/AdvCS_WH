@@ -21,6 +21,7 @@ class pop():
         """
         if not self.vax:
             self.vax = True
+        return self
 
     def infect(self):
         """
@@ -28,6 +29,7 @@ class pop():
         """
         if not self.cured and not self.dead and not self.infected:
             self.infected = True
+        return self
 
     def cure(self):
         """
@@ -36,6 +38,7 @@ class pop():
         if self.infected:
             self.infected = False
             self.cured = True
+        return self
 
     def kill(self):
         """
@@ -44,12 +47,14 @@ class pop():
         if self.infected:
             self.infected = False
             self.dead = True
+        return self
 
 class disease():
-    def __init__(self, infect, vaxresist, lethality):
+    def __init__(self, infect, vaxresist, lethality, curability):
         self.infectiousness = infect
         self.resistance = vaxresist
         self.lethality = lethality
+        self.curability = curability
 
     def infect(self, pop):
         if pop.vax == False:
@@ -58,6 +63,11 @@ class disease():
         else:
             if random.random() < self.resistance:
                 pop.infect()
+
+    def cure(self, pop):
+        if pop.infected:
+            if random.random() < self.curability:
+                pop.cure()
 
     def kill(self, pop):
         if pop.infected:
@@ -71,7 +81,22 @@ def printBoard(board):
     for row in board:
         line = ''
         for col in row:
-            line += str(col)
+            if col.dead:
+                line += 'D'
+            elif col.infected:
+                line += 'I'
+            elif col.vax:
+                line += 'V'
+            else:
+                line += 'O'
         print line
 
+def vaxedBoard(vaxprop, width, height):
+    return [[pop(row, col).vaccinate() if random.random() < vaxprop else pop(row, col) for col in range(width)] for row in range(height)]
 
+def adjacent(board, row, col):
+    
+
+def oneStep(board, disease):
+    for row in range(len(board)):
+        for col in range(len(board[0])):
