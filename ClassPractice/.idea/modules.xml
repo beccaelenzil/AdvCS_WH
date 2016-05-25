@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ClassPractice.iml" filepath="$PROJECT_DIR$/.idea/ClassPractice.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/herd_immunity/.idea/herd_immunity.iml" filepath="$USER_HOME$/PycharmProjects/herd_immunity/.idea/herd_immunity.iml" />
     </modules>
   </component>
 </project>
